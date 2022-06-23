@@ -3,12 +3,12 @@ import 'package:c14190040_01/dataclass.dart';
 import 'package:http/http.dart' as http;
 
 class Service {
-  Future<List<cData>> getAllData() async {
+  Future<Welcome> getAllData() async {
     final response = await http.get(
         Uri.parse('https://api-berita-indonesia.vercel.app/cnbc/terbaru/'));
     if (response.statusCode == 200) {
-      List jsonResponse = json.decode(response.body);
-      return jsonResponse.map((data) => cData.fromJson(data)).toList();
+      Welcome jsonResponse = Welcome.fromJson(json.decode(response.body));
+      return jsonResponse;
     } else {
       throw Exception("Failed to load");
     }
