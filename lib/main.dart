@@ -31,7 +31,6 @@ class _MyAppState extends State<MyApp> {
   final List<Widget> _pages = [
     Home(),
     Like(),
-    Detail(),
   ];
   @override
   Widget build(BuildContext context) {

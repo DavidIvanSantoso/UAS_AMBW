@@ -71,14 +71,14 @@ class Post {
 
   String link;
   String title;
-  DateTime pubDate;
+  String pubDate;
   String description;
   String thumbnail;
 
   factory Post.fromJson(Map<String, dynamic> json) => Post(
         link: json["link"],
         title: json["title"],
-        pubDate: DateTime.parse(json["pubDate"]),
+        pubDate: json["pubDate"],
         description: json["description"],
         thumbnail: json["thumbnail"],
       );
@@ -86,7 +86,7 @@ class Post {
   Map<String, dynamic> toJson() => {
         "link": link,
         "title": title,
-        "pubDate": pubDate.toIso8601String(),
+        "pubDate": pubDate,
         "description": description,
         "thumbnail": thumbnail,
       };

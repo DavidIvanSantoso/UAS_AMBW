@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
+import 'package:c14190040_01/dataclass.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class Like extends StatefulWidget {

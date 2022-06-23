@@ -1,4 +1,5 @@
 import 'package:c14190040_01/dataclass.dart';
+import 'package:c14190040_01/pages/detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -39,8 +40,21 @@ class _HomeState extends State<Home> {
                 itemBuilder: (context, index) {
                   return Card(
                     child: ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Detail(
+                                      title: isiPost[index].title,
+                                      description: isiPost[index].description,
+                                      pubDate: isiPost[index].pubDate,
+                                      thumbnail: isiPost[index].thumbnail,
+                                      link: isiPost[index].link,
+                                    )));
+                      },
                       title: Text(isiPost[index].title),
+                      subtitle: Text(isiPost[index].description),
+                      leading: Image.network(isiPost[index].thumbnail),
                     ),
                   );
                 },
