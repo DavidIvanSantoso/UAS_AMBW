@@ -3,6 +3,8 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:c14190040_01/dataclass.dart';
 
+import '../dbservices.dart';
+
 class Detail extends StatefulWidget {
   final String title;
   final String description;
@@ -26,6 +28,7 @@ class _DetailState extends State<Detail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -70,6 +73,7 @@ class _DetailState extends State<Detail> {
                         pubDate: widget.pubDate,
                         description: widget.description,
                         thumbnail: widget.thumbnail);
+                    Database.tambahData(item: dataPush);
                   } catch (e) {
                     print(e);
                   }
@@ -80,7 +84,9 @@ class _DetailState extends State<Detail> {
                 padding: EdgeInsets.all(8),
                 child: ElevatedButton(
                   child: Icon(Icons.heart_broken),
-                  onPressed: () {},
+                  onPressed: () {
+                    Database.deleteData(judulId: widget.title);
+                  },
                 ))
           ],
         ),

@@ -3,9 +3,16 @@
 import 'package:c14190040_01/pages/detail.dart';
 import 'package:c14190040_01/pages/home.dart';
 import 'package:c14190040_01/pages/like.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MaterialApp(
     title: 'UAS',
     debugShowCheckedModeBanner: false,
@@ -48,7 +55,7 @@ class _MyAppState extends State<MyApp> {
               label: "Home",
               backgroundColor: Color.fromRGBO(48, 71, 94, 1)),
           BottomNavigationBarItem(
-              icon: Icon(Icons.emergency),
+              icon: Icon(Icons.favorite),
               label: "Like",
               backgroundColor: Color.fromRGBO(48, 71, 94, 1)),
         ],
