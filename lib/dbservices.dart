@@ -9,7 +9,7 @@ class Database {
       return tblPost.snapshots();
     } else {
       return tblPost
-          .orderBy("judulCat")
+          .orderBy("title")
           .startAt([judul]).endAt([judul + 'u\uf8ff']).snapshots();
     }
   }
